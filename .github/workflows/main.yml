@@ -2,7 +2,7 @@ name: Send Daily TOEIC Email
 
 on:
   schedule:
-    - cron: '0 13 * * *'  # 台灣晚上 9 點（UTC+8 = UTC 13）
+    - cron: '0 13 * * *'  # 台灣時間 21:00 執行（UTC+8）
   workflow_dispatch:
 
 jobs:
@@ -24,4 +24,6 @@ jobs:
       - name: Run TOEIC mail script
         env:
           EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
-          EMAIL
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+        run: python scripts/learning.py
