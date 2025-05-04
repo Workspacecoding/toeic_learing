@@ -8,10 +8,10 @@ import os
 # 載入 .env 檔案中的環境變數
 load_dotenv()
 
-# 從環境變數讀取敏感資料
-sender = os.getenv("EMAIL_ADDRESS")
-app_password = os.getenv("EMAIL_PASSWORD")
-receiver = os.getenv("TO_EMAIL")
+# 從環境變數（包含 GitHub Secrets）讀取敏感資料
+sender = os.environ.get("EMAIL_ADDRESS")
+app_password = os.environ.get("EMAIL_PASSWORD")
+receiver = os.environ.get("TO_EMAIL")
 
 # 驗證變數是否正確讀取
 if not all([sender, app_password, receiver]):
