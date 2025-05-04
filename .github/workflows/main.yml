@@ -21,11 +21,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-     - name: Run TOEIC mail script
-  env:
-    EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
-    EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-    TO_EMAIL: ${{ secrets.TO_EMAIL }}
-  run: python scripts/learning.py
-
-
+      - name: Run TOEIC mail script
+        env:
+          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+          EMAIL
